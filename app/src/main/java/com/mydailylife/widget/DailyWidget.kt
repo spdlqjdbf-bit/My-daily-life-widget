@@ -1,4 +1,3 @@
-
 package com.mydailylife.widget
 
 import android.app.PendingIntent
@@ -40,26 +39,60 @@ class DailyWidget : AppWidgetProvider() {
             )
 
             views.setTextViewText(
-                R.id.widget_title,
-                "MY DAILY LIFE"
+                R.id.date,
+                Store.today()
             )
 
-            val intent = Intent(
+            views.setTextViewText(
+                R.id.summary,
+                Store.summary(context)
+            )
+
+            val actions = listOf(
+                R.id.activity to "활동",
+                R.id.food to "음식",
+                R.id.health to "건강",
+                R.id.routine to "루틴",
+                R.id.diary to "일기",
+                R.id.tag to "태그"
+            )
+
+            actions.forEachIndexed { index, pair ->
+                val intent = Intent(
+                    context,
+                    QuickEntryActivity::class.java
+                ).putExtra("kind", pair.second)
+
+                val pending = PendingIntent.getActivity(
+                    context,
+                    100 + index,
+                    intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT or
+                        PendingIntent.FLAG_IMMUTABLE
+                )
+
+                views.setOnClickPendingIntent(
+                    pair.first,
+                    pending
+                )
+            }
+
+            val mainIntent = Intent(
                 context,
                 MainActivity::class.java
             )
 
-            val pendingIntent = PendingIntent.getActivity(
+            val mainPending = PendingIntent.getActivity(
                 context,
                 200,
-                intent,
+                mainIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT or
                     PendingIntent.FLAG_IMMUTABLE
             )
 
             views.setOnClickPendingIntent(
                 R.id.widget_title,
-                pendingIntent
+                mainPending
             )
 
             manager.updateAppWidget(id, views)
