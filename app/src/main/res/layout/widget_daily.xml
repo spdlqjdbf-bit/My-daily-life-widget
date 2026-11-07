@@ -1,14 +1,15 @@
+
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp"
+    android:padding="12dp"
     android:background="#FFF3F7">
 
     <TextView
-        android:id="@+id/widget_title"
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="MY DAILY LIFE"
@@ -16,5 +17,83 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="오늘 날짜"
+        android:textColor="#555555"
+        android:gravity="center"
+        android:padding="6dp" />
+
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="오늘의 기록"
+        android:textColor="#555555"
+        android:gravity="center"
+        android:padding="6dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/activity"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="활동"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/food"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="음식"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/health"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="건강"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/routine"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="루틴"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/diary"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="일기"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="태그"
+            android:gravity="center" />
+    </LinearLayout>
 
 </LinearLayout>
